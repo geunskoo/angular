@@ -1,4 +1,8 @@
 <!-- 1. 문자열 보간 방식 -->
 <!-- 필드값, 함수 다 사용가능, number -> string 타입 추정 기능 지원 -->
-<p>{{'Server'}} with ID {{ serverId }} is {{serverStatus}} </p> 
-<p>{{'Server'}} with ID {{ serverId }} is {{getServerStatus()}} </p> 
+<p [ngStyle]="{backgroundColor: getColor()}"
+ [ngClass]="{online: serverStatus === 'online'}">\
+
+    {{'Server'}} with ID {{ serverId }} is {{getServerStatus()}} 
+    
+</p> 
