@@ -1,2 +1,23 @@
+<!-- 동적으로 속성 바인딩 -->
+<!-- 문자열 보간이든 속성 바인딩이든 섞어서 쓰지말자.그리고 왠만하면 속성 바인딩이 더 좋은듯. -->
+<label>Server Name</label>
+<!-- <input type="text" 
+ class="form-control" 
+ (input)="onUpdateServerName($event)">
+<p> {{serverName}} </p> -->
+
+<input type="text" 
+ class="form-control" 
+ [(ngModel)]="serverName">
+<p> {{serverName}} </p>
+
+<button class="btn btn-primary"
+ [disabled]="!allowNewServer"
+ (click)="onCreateServer()"
+ >Add Server</button>
+<p>{{ allowNewServer }} </p>
+<p [innerText]= "allowNewServer">  </p>
+
+<p>{{ serverCreationStatus }}</p>
 <app-server></app-server>
 <app-server></app-server>
