@@ -9,12 +9,20 @@ import { MessagesService } from './messages.service';
 })
 export class HeroService {
 
+
   constructor(private messageService: MessagesService) { }
 
   getHeroes(): Observable<Hero[]>{
     const heros = of(HEROS);
     this.messageService.add('HeroService: fetched heros');
     return heros;
+  }
+
+  getHero(id: number):Observable<Hero> {
+    // 지금은 히어로의 'id' 프로퍼티가 항상 존재한다고 가정한다.
+    const hero = HEROS.find(h => h.id === id)!;
+    this.messageService.add(`HeroService: fetched hero id=${id}`);
+    return of(hero)
   }
 
 }
