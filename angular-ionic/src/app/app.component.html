@@ -5,23 +5,28 @@
         <ion-list id="inbox-list">
           <ion-list-header>Study Note</ion-list-header>
           <ion-note>oryukdo3@pusan.ac.kr</ion-note>
-
-          <ion-menu-toggle autoHide="false"
-                           *ngFor="let p of appPages; let i = index">
-            <ion-item routerDirection="root" 
-                      [routerLink]="[p.url]" 
-                      lines="none" detail="false" 
-                      routerLinkActive="selected">
-              <ion-icon aria-hidden="true" 
-                        slot="start" 
-                        [ios]="p.icon + '-outline'" 
-                        [md]="p.icon + '-sharp'">
-              </ion-icon>
-              <ion-label>
-                {{ p.title }}
-              </ion-label>
-            </ion-item>
-          </ion-menu-toggle>
+          
+          <ul>
+            <ng-container *ngFor="let p of appPages; let i = index">
+              <ion-menu-toggle autoHide="false">
+                <li>
+                  <p (click)="clickEventService.onTabClick(p.url)">
+                    <ion-item routerDirection="root"
+                          lines="none" detail="false" >
+                    <ion-icon aria-hidden="true" 
+                              slot="start"
+                              [ios]="p.icon + '-outline'" 
+                              [md]="p.icon + '-sharp'">
+                    </ion-icon>
+                    <ion-label>
+                    {{ p.title }}
+                  </ion-label>
+                  </ion-item>
+                  </p>
+                </li>
+              </ion-menu-toggle>
+            </ng-container>
+          </ul>
         </ion-list>
 
 

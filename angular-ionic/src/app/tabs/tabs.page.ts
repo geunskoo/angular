@@ -3,15 +3,15 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-folder',
-  templateUrl: './folder.page.html',
-  styleUrls: ['./folder.page.scss'],
+  templateUrl: './tabs.page.html',
+  styleUrls: ['./tabs.page.scss'],
 })
-export class FolderPage implements OnInit {
-  public folder!: string;
+export class TabsPage implements OnInit {
+  public tab!: string;
   private activatedRoute = inject(ActivatedRoute);
   constructor() {}
 
   ngOnInit() {
-    this.folder = this.activatedRoute.snapshot.paramMap.get('id') as string;
+    this.tab = this.activatedRoute.snapshot.paramMap.get('id') as string;
   }
 }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Page, appPages, labels } from './page-models/app-pages';
+import { ClickEventService } from './click-event.service';
 
 @Component({
   selector: 'app-root',
@@ -11,5 +12,7 @@ export class AppComponent {
   appPages: Page[] = appPages;
   labels: string[] = labels;
 
-  constructor() {}
+  constructor(
+    public clickEventService: ClickEventService,
+  ) {}
 }
