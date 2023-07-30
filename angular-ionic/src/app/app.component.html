@@ -5,14 +5,11 @@
         <ion-list id="inbox-list">
           <ion-list-header>Study Note</ion-list-header>
           <ion-note>oryukdo3@pusan.ac.kr</ion-note>
-          
-          <ul>
-            <ng-container *ngFor="let p of appPages; let i = index">
+            <ng-container *ngFor="let p of appPages">
               <ion-menu-toggle autoHide="false">
-                <li>
-                  <p (click)="clickEventService.onTabClick(p.url)">
                     <ion-item routerDirection="root"
-                          lines="none" detail="false" >
+                          lines="none" detail="false" 
+                          (click)="clickEventService.onTabClick(p.url)">
                     <ion-icon aria-hidden="true" 
                               slot="start"
                               [ios]="p.icon + '-outline'" 
@@ -22,12 +19,9 @@
                     {{ p.title }}
                   </ion-label>
                   </ion-item>
-                  </p>
-                </li>
               </ion-menu-toggle>
             </ng-container>
-          </ul>
-        </ion-list>
+          </ion-list>
 
 
         <ion-list id="labels-list">
@@ -50,5 +44,4 @@
     </ion-menu>
     <ion-router-outlet id="main-content"></ion-router-outlet>
   </ion-split-pane>
-
 </ion-app>
